@@ -4,6 +4,7 @@
   <persistence-unit name="test" >
 
     <class>de.gedoplan.showcase.entity.Country</class>
+    <class>de.gedoplan.showcase.entity.City</class>
     
     <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 

@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+  <h:form>
+    <h:panelGrid columns="3">
+      <h:outputLabel value="name:" for="name" />
+      <h:inputText value="${cityPresenter.currentCity.name}" id="name" />
+      <h:message for="name"/>
+
+      <h:outputLabel value="area:" for="area" />
+      <h:inputText value="${cityPresenter.currentCity.area}" id="area" />
+      <h:message for="area"/>
+
+      <h:outputLabel value="population:" for="population" />
+      <h:inputText value="${cityPresenter.currentCity.population}" id="population" />
+      <h:message for="population"/>
+
+      <h:commandButton actionListener="${cityPresenter.insertCurrentCity()}" value="insert" />
+    </h:panelGrid>
+  </h:form>
+
+  <p />
+
+  <h:dataTable value="${cityPresenter.allCities}" var="c" rules="all">
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Name" />
+      </f:facet>
+      <h:outputText value="#{c.name}" />
+    </h:column>
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Area" />
+      </f:facet>
+      <h:outputText value="#{c.area}" />
+    </h:column>
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Population" />
+      </f:facet>
+      <h:outputText value="#{c.population}" />
+    </h:column>
+  </h:dataTable>
+
+</h:body>
+</html>

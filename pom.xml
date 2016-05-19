@@ -28,6 +28,12 @@
     </dependency>
 
     <dependency>
+      <groupId>de.gedoplan</groupId>
+      <artifactId>baselibs-persistence</artifactId>
+      <version>1.0.30</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.16.8</version>
@@ -54,6 +60,13 @@
       <scope>test</scope>
     </dependency>
     
+    <dependency>
+      <groupId>org.unitils</groupId>
+      <artifactId>unitils-core</artifactId>
+      <version>3.3</version>
+      <scope>test</scope>
+    </dependency>
+
     <dependency>
       <groupId>log4J</groupId>
       <artifactId>log4j</artifactId>

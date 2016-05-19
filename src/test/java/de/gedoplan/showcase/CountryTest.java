@@ -54,7 +54,7 @@ public class CountryTest extends TestBase
     {
       this.entityManager.persist(country);
 
-      this.log.info("Inserted: " + country);
+      this.log.debug("Inserted: " + country);
     }
   }
 
@@ -75,7 +75,7 @@ public class CountryTest extends TestBase
 
     try
     {
-      this.log.info("Change population: " + populationOld + " -> " + populationNew);
+      this.log.debug("Change population: " + populationOld + " -> " + populationNew);
 
       // Eintrag ändern
       country.setPopulation(populationNew);
@@ -84,7 +84,7 @@ public class CountryTest extends TestBase
       // Test: Eintrag in DB verändert?
       this.entityManager.clear();
       country = this.entityManager.find(Country.class, isoCode);
-      this.log.info("Changed entry: " + country);
+      this.log.debug("Changed entry: " + country);
       Assert.assertEquals("Population", populationNew, country.getPopulation());
     }
     finally
@@ -128,7 +128,7 @@ public class CountryTest extends TestBase
       this.entityManager.remove(country);
       this.entityManager.getTransaction().commit();
 
-      this.log.info("Removed country with isoCode " + isoCode);
+      this.log.debug("Removed country with isoCode " + isoCode);
 
       // Test: Ist der Eintrag aus der DB gelöscht?
       this.entityManager.clear();
@@ -170,7 +170,7 @@ public class CountryTest extends TestBase
     query.setParameter(1, carCode);
     Country country = query.getSingleResult();
 
-    this.log.info("Found: " + country);
+    this.log.debug("Found: " + country);
 
     assertThat(country, is(testCountry));
   }
@@ -190,7 +190,7 @@ public class CountryTest extends TestBase
     query.setParameter("phonePrefix", phonePrefix);
     Country country = query.getSingleResult();
 
-    this.log.info("Found: " + country);
+    this.log.debug("Found: " + country);
 
     assertThat(country, is(testCountry));
   }
@@ -204,7 +204,7 @@ public class CountryTest extends TestBase
     List<Country> countries = query.getResultList();
     for (Country country : countries)
     {
-      this.log.info("Found: " + country);
+      this.log.debug("Found: " + country);
     }
 
     assertThat(countries.size(), is(testCountries.length));
@@ -229,7 +229,7 @@ public class CountryTest extends TestBase
     List<Country> countries = query.getResultList();
     for (Country country : countries)
     {
-      this.log.info("Found: " + country);
+      this.log.debug("Found: " + country);
     }
 
     assertThat(countries.size(), is(testCountriesAS.length));

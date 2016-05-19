@@ -3,7 +3,7 @@
   version="2.1">
   <persistence-unit name="showcase" transaction-type="JTA" >
 
-    <class>de.gedoplan.showcase.entity.Country</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     
     <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 

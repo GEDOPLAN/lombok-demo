@@ -4,14 +4,14 @@ import de.gedoplan.showcase.entity.Country;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @Transactional
 public class CountryRepository
 {
-  @PersistenceContext
+  @Inject
   private EntityManager entityManager;
 
   public void persist(Country country)

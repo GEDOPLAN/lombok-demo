@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+  <h:form>
+    <h:panelGrid columns="3">
+      <h:outputLabel value="isoCode:" for="isoCode" />
+      <h:inputText value="${countryPresenter.currentCountry.isoCode}" id="isoCode" />
+      <h:message for="isoCode"/>
+
+      <h:outputLabel value="name:" for="name" />
+      <h:inputText value="${countryPresenter.currentCountry.name}" id="name" />
+      <h:message for="name"/>
+
+      <h:outputLabel value="carCode:" for="carCode" />
+      <h:inputText value="${countryPresenter.currentCountry.carCode}" id="carCode" />
+      <h:message for="carCode"/>
+
+      <h:outputLabel value="phonePrefix:" for="phonePrefix" />
+      <h:inputText value="${countryPresenter.currentCountry.phonePrefix}" id="phonePrefix" />
+      <h:message for="phonePrefix"/>
+
+      <h:commandButton actionListener="${countryPresenter.insertCurrentCountry()}" value="insert" />
+    </h:panelGrid>
+  </h:form>
+
+  <p />
+
+  <h:dataTable value="${countryPresenter.allCountries}" var="c" rules="all">
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="ISO Code" />
+      </f:facet>
+      <h:outputText value="#{c.isoCode}" />
+    </h:column>
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Name" />
+      </f:facet>
+      <h:outputText value="#{c.name}" />
+    </h:column>
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Car Code" />
+      </f:facet>
+      <h:outputText value="#{c.carCode}" />
+    </h:column>
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Phone Prefix" />
+      </f:facet>
+      <h:outputText value="#{c.phonePrefix}" />
+    </h:column>
+  </h:dataTable>
+
+</h:body>
+</html>
